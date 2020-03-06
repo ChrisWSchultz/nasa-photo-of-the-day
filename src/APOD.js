@@ -11,15 +11,17 @@ export function PictureOfTheDay() {
     const [data, setData ] = useState(0);
     const [link, setLink] = useState(BASE_URL);
 
-    function getDate() {
-
+    function getDate(event) {
+        const datepicker = document.querySelector('#date-picker');
+        console.log(`${event.target.value}`);
+        datepicker.setAttribute('value', `${event.target.value}`);
+        setLink(`${DATE_QUERY}${event.target.value}`);
     }
 
     useEffect(() => {
         axios
             .get(`${link}`)
             .then(response => {
-                console.log(response);
                 setData(response.data);
             });
     }, []);
@@ -28,7 +30,6 @@ export function PictureOfTheDay() {
         axios
             .get(`${link}`)
             .then(response => {
-                console.log(response);
                 setData(response.data);
             });
     }, [link]);
@@ -47,7 +48,7 @@ export function PictureOfTheDay() {
     return (
     <FullScreen>
         <div>
-            <DatePicker onChange={(event) => {setLink(`${DATE_QUERY}${event.target.value}`)}}/>
+            <DatePicker onChange={(event) => {getDate(event)}}/>
         </div>
 
         <PictureCard data={data} />

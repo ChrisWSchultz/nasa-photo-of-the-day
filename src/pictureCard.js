@@ -45,8 +45,7 @@ export const FullScreen = styled.div`
 `
 export const DatePicker = styled.input.attrs({
     type: 'date',
-    class: 'date-picker',
-    value: `${today.toISOString().slice(0, 10)}`,
+    id: 'date-picker',
     min: '2015-01-01',
     max: `${today.toISOString().slice(0, 10)}`
 })`
