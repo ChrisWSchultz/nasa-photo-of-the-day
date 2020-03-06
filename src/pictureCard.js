@@ -24,6 +24,19 @@ const Paragraph = styled.div`
     padding-bottom: 20px;
     display: ${(props) => props.showCard ? 'border-box': 'none'};
 `
+const Video = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 100%;
+`
+export const SideButton = styled.button`
+    width: 60px;
+    color: white;
+`
+export const ControlsContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+`
 
 
 function PictureCard(props) {
@@ -42,10 +55,12 @@ function PictureCard(props) {
         );
     } else if (props.data.media_type === 'video') {
         return (
-            <iframe id="ytplayer" width="800" height="600"
-                    src={ props.data.url }
-                    frameBorder="0">
-            </iframe>
+            <Video>
+                <iframe id="ytplayer" width="800" height="600"
+                        src={ props.data.url }
+                        frameBorder="0">
+                </iframe>
+            </Video>
         )
     }
 }
