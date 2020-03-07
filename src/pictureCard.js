@@ -58,7 +58,7 @@ export const DatePicker = styled.input.attrs({
 export const DateWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
-    width: 235px;
+    width: 240px;
 `
 
 
