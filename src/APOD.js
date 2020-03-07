@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { BASE_URL, DATE_QUERY } from "./config";
 
-import PictureCard, { DatePicker, FullScreen } from "./pictureCard";
+import PictureCard, { DatePicker, FullScreen, DateWrapper } from "./pictureCard";
 
 
 export function PictureOfTheDay() {
@@ -13,7 +13,6 @@ export function PictureOfTheDay() {
 
     function getDate(event) {
         const datepicker = document.querySelector('#date-picker');
-        console.log(`${event.target.value}`);
         datepicker.setAttribute('value', `${event.target.value}`);
         setLink(`${DATE_QUERY}${event.target.value}`);
     }
@@ -47,10 +46,9 @@ export function PictureOfTheDay() {
     }
     return (
     <FullScreen>
-        <div>
+        <DateWrapper>
             <DatePicker onChange={(event) => {getDate(event)}}/>
-        </div>
-
+        </DateWrapper>
         <PictureCard data={data} />
     </FullScreen>
     );

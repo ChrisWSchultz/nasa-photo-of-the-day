@@ -55,6 +55,11 @@ export const DatePicker = styled.input.attrs({
     border: none;
     background-color: transparent;
 `
+export const DateWrapper = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    width: 235px;
+`
 
 
 function PictureCard(props) {
